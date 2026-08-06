@@ -1,0 +1,40 @@
+name: Check my work
+
+# Runs on every push to YOUR fork, and on every pull request.
+# Open the Actions tab after pushing to see the results table.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  public-tests:
+    name: Public tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install the toolchain
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq build-essential openmpi-bin libopenmpi-dev python3-yaml
+
+      - name: Run the public tests
+        id: tests
+        run: python3 tools/check.py
+
+      - name: What to do next
+        if: always()
+        run: |
+          {
+            echo ""
+            echo "### Reminder"
+            echo ""
+            echo "* Put your file in \`submissions/<exercise>/<ROLLNO>.<ext>\`."
+            echo "* CUDA exercises are skipped here because the runner has no GPU."
+            echo "  Run those on the cluster with \`./selfcheck.sh\`."
+            echo "* Passing here does not mean full marks. Hidden tests, a"
+            echo "  determinism check and a speedup measurement are part of the"
+            echo "  real grade."
+          } >> "$GITHUB_STEP_SUMMARY"
