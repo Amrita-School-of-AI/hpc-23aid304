@@ -1,0 +1,27 @@
+name: Check my work
+
+# Retired. Graded work now lives in Classroom 50 repositories, one per item,
+# each with its own autograder; see handbook/student-guide.pdf, Part 3.2.
+# This workflow stays only so that old forks do not show a broken badge. It
+# does nothing beyond printing where to go.
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  notice:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          {
+            echo "### This repository is read-only course material"
+            echo ""
+            echo "Labs, exercises and assignments are submitted through Classroom 50:"
+            echo ""
+            echo '    gh extension install foundation50/gh-student'
+            echo '    gh student accept Amrita-School-of-AI aim-a-hpc <item>'
+            echo '    gh student submit'
+            echo ""
+            echo "The grader's report appears as a Release on the item repository."
+            echo "Details: handbook/student-guide.pdf, Parts 3.2, 5 and 6."
+          } >> "$GITHUB_STEP_SUMMARY"
