@@ -1,4 +1,4 @@
-# 23AID304 — High-Performance and Cloud Computing
+# 23AID304 · High-Performance and Cloud Computing
 
 **Dr. Abhijith Anandakrishnan**, Assistant Professor
 Amrita School of AI, Amrita Vishwa Vidyapeetham, Coimbatore
@@ -7,16 +7,12 @@ L-T-P-C 2-0-2-3 · Semester 5 · B.Tech Artificial Intelligence and Data Science
 
 ---
 
-All course material lives here: notes, slides, assignments, lab sheets and coding
-exercises. Everything is a PDF built from source in this repository, so it is the
-same on every machine and works offline.
+All course material lives here. Everything is a PDF built from source, so it is
+the same on every machine and works offline.
 
 ## New here? Start with the Getting Started guide
 
-**[handbook/student-guide.pdf](handbook/student-guide.pdf)** takes you from a
-laptop with nothing installed to a working setup: a GitHub SSH key, the compiler,
-and the `gh student` tool that accepts and submits every graded item. About forty
-minutes, once.
+**[handbook/student-guide.pdf](handbook/student-guide.pdf)** takes you from a laptop with nothing installed to a working setup: a GitHub SSH key, the compiler, and the `gh student` tool that accepts and submits every graded item. About forty minutes, once.
 
 Then read **[handbook/course-handbook.pdf](handbook/course-handbook.pdf)** for the
 week-by-week plan, the marks breakdown and the policies, and keep
@@ -31,17 +27,17 @@ that take an item from accept to graded report.
 |---|---|
 | [classroom items](handbook/classroom-items.pdf) | 838 KB |
 | [course handbook](handbook/course-handbook.pdf) | 766 KB |
-| [student guide](handbook/student-guide.pdf) | 974 KB |
+| [student guide](handbook/student-guide.pdf) | 1001 KB |
 
 ### Notes
 
 | Document | Size |
 |---|---|
-| [unit0 foundations](notes/unit0-foundations.pdf) | 1511 KB |
-| [unit1 architecture and performance](notes/unit1-architecture-and-performance.pdf) | 1291 KB |
-| [unit2 openmp and mpi](notes/unit2-openmp-and-mpi.pdf) | 1811 KB |
-| [unit3 gpu and cuda](notes/unit3-gpu-and-cuda.pdf) | 1444 KB |
-| [unit4 cloud and hpc ai](notes/unit4-cloud-and-hpc-ai.pdf) | 1127 KB |
+| [unit0 foundations](notes/unit0-foundations.pdf) | 1591 KB |
+| [unit1 architecture and performance](notes/unit1-architecture-and-performance.pdf) | 1345 KB |
+| [unit2 openmp and mpi](notes/unit2-openmp-and-mpi.pdf) | 2141 KB |
+| [unit3 gpu and cuda](notes/unit3-gpu-and-cuda.pdf) | 1598 KB |
+| [unit4 cloud and hpc ai](notes/unit4-cloud-and-hpc-ai.pdf) | 1037 KB |
 
 ### Slide decks
 
@@ -50,7 +46,7 @@ that take an item from accept to graded report.
 | [d01 why parallel](slides/d01-why-parallel.pdf) | 204 KB |
 | [d02 performance and roofline](slides/d02-performance-and-roofline.pdf) | 271 KB |
 | [d03 openmp](slides/d03-openmp.pdf) | 270 KB |
-| [d04 mpi](slides/d04-mpi.pdf) | 265 KB |
+| [d04 mpi](slides/d04-mpi.pdf) | 264 KB |
 | [d05 gpu and cuda](slides/d05-gpu-and-cuda.pdf) | 302 KB |
 | [d06 cloud and hpc ai](slides/d06-cloud-and-hpc-ai.pdf) | 247 KB |
 
@@ -67,15 +63,15 @@ that take an item from accept to graded report.
 
 | Document | Size |
 |---|---|
-| [lab01 timing and memory](labs/lab01-timing-and-memory.pdf) | 595 KB |
-| [lab02 slurm and the cluster](labs/lab02-slurm-and-the-cluster.pdf) | 722 KB |
-| [lab03 scaling study and roofline](labs/lab03-scaling-study-and-roofline.pdf) | 456 KB |
-| [lab04 openmp and races](labs/lab04-openmp-and-races.pdf) | 506 KB |
+| [lab01 timing and memory](labs/lab01-timing-and-memory.pdf) | 597 KB |
+| [lab02 slurm and the cluster](labs/lab02-slurm-and-the-cluster.pdf) | 731 KB |
+| [lab03 scaling study and roofline](labs/lab03-scaling-study-and-roofline.pdf) | 459 KB |
+| [lab04 openmp and races](labs/lab04-openmp-and-races.pdf) | 505 KB |
 | [lab05 optimising matrix multiply](labs/lab05-optimising-matrix-multiply.pdf) | 346 KB |
 | [lab06 mpi basics and deadlock](labs/lab06-mpi-basics-and-deadlock.pdf) | 398 KB |
 | [lab07 domain decomposition](labs/lab07-domain-decomposition.pdf) | 326 KB |
 | [lab08 first cuda kernels](labs/lab08-first-cuda-kernels.pdf) | 389 KB |
-| [lab09 cuda profiling and roofline](labs/lab09-cuda-profiling-and-roofline.pdf) | 576 KB |
+| [lab09 cuda profiling and roofline](labs/lab09-cuda-profiling-and-roofline.pdf) | 574 KB |
 | [HPC_Setup_Guide_Amrita_Vishwa_Vidyapeetham](labs/setup/HPC_Setup_Guide_Amrita_Vishwa_Vidyapeetham.pdf) | 39 KB |
 
 ### Coding exercises
@@ -111,12 +107,6 @@ gh student submit
 
 The exercise folders here hold the statements, starters and public tests for
 reading; the copy you edit is the one Classroom 50 gives you.
-
-## Rebuilding the PDFs
-
-Every document is generated from Markdown by the toolkit in the course repository.
-Continuous integration rebuilds them on each push and refuses to publish a PDF that
-fails font-embedding or layout checks.
 
 ## Licence and reuse
 
