@@ -1,0 +1,63 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check every PDF is readable and has pages
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
+          fail=0
+          while IFS= read -r -d '' f; do
+            pages=$(pdfinfo "$f" 2>/dev/null | awk '/^Pages:/{print $2}')
+            if [ -z "$pages" ] || [ "$pages" -lt 1 ]; then
+              echo "::error file=$f::unreadable or empty PDF"; fail=1
+            else
+              echo "ok   $pages pages  $f"
+            fi
+          done < <(find . -name '*.pdf' -print0)
+          exit $fail
+
+      - name: Refuse to publish answer keys
+        run: |
+          # The public repository must never contain a solution, a hidden test
+          # or a rubric. This is the last line of defence after publish.py.
+          if find . -path ./.git -prune -o \
+               \( -iname '*hidden*' -o -iname '*solution*' -o -iname '*rubric*' \
+                  -o -iname '*answer-key*' \) -print | grep -q .; then
+            echo "::error::answer-key material found in the public repository"
+            find . -path ./.git -prune -o \
+              \( -iname '*hidden*' -o -iname '*solution*' -o -iname '*rubric*' \
+                 -o -iname '*answer-key*' \) -print
+            exit 1
+          fi
+          echo "clean"
+
+      - name: Starter code must compile
+        run: |
+          sudo apt-get install -y -qq build-essential openmpi-bin libopenmpi-dev
+          shopt -s nullglob
+          rc=0
+          for d in exercises/*/; do
+            for f in "$d"starter/*.c; do
+              # Pick the compiler from what the source actually includes, so an
+              # MPI exercise is not checked with plain gcc. Students start from
+              # a green build; a starter that does not compile is our bug.
+              if grep -q '#include *<mpi\.h>' "$f"; then CC=mpicc; else CC=gcc; fi
+              if $CC -fsyntax-only -fopenmp -Iexercises/harness -I"$d"include "$f"; then
+                echo "ok   ($CC) $f"
+              else
+                echo "::error file=$f::starter does not compile with $CC"; rc=1
+              fi
+            done
+          done
+          exit $rc
