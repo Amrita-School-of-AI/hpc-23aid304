@@ -23,5 +23,5 @@ jobs:
             echo '    gh student submit'
             echo ""
             echo "The grader's report appears as a Release on the item repository."
-            echo "Details: handbook/student-guide.pdf, Parts 3.2, 5 and 6."
+            echo "Details: handbook/student-guide.pdf."
           } >> "$GITHUB_STEP_SUMMARY"
