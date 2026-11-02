@@ -27,7 +27,7 @@ that take an item from accept to graded report.
 |---|---|
 | [classroom items](handbook/classroom-items.pdf) | 1079 KB |
 | [course handbook](handbook/course-handbook.pdf) | 782 KB |
-| [student guide](handbook/student-guide.pdf) | 1017 KB |
+| [student guide](handbook/student-guide.pdf) | 1016 KB |
 
 ### Notes
 
